@@ -1,6 +1,34 @@
 # Proposed dtd changes NAF version 4
 
-## terms
+## span
+
+The proposal is to add the following attributes to the **span** element:
+* status 
+
+The possible values of **status** are:
+* manual: manually added
+* system: a language system added the annotation
+* deprecated: the coref element is deprecated, i.e., will no longer be used.
+
+Version 3
+```dtd
+<!-- SPAN ELEMENT -->
+<!ELEMENT span (target)+>
+<!ATTLIST span
+          primary CDATA #IMPLIED>
+```
+
+Version 4
+```dtd
+<!-- SPAN ELEMENT -->
+<!ELEMENT span (target)+>
+<!ATTLIST span
+          primary CDATA #IMPLIED
+		  status CDATA #IMPLIED>
+```
+
+
+## term
 
 The proposal is to add the following attributes to the **term** element:
 * phrase_type 
