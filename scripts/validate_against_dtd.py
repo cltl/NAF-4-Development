@@ -10,7 +10,7 @@ Options:
 
 Example:
     python validate_against_dtd.py --naf_path="../resources/data-to-text annotation tool/NAF/before/coreference/coreference.naf"\
-    --naf_v4_dtd_path="../resources/naf development/naf_v4.dtd"
+    --naf_v4_dtd_path="../resources/naf_development/naf_v4.dtd"
 """
 from docopt import docopt
 import os
