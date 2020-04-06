@@ -274,24 +274,12 @@
 
 <!-- COMPONENT ELEMENT -->
 <!--
-    Compound and multiword terms can be represented in NAF by including <component> elements within <term> elements.
-    The <component> elements have the following attributes:
-    -   id: unique identifier (REQUIRED and UNIQUE)
-    -   lemma: lemma of the term (REQUIRED)
-    -   pos: part of speech (REQUIRED)
-    -   case: declension case (optional)
+    Compound and multiword terms can be represented in NAF by including a <component> element within <term> elements.
+    The <component> element has no attributes.
 
   -->
-<!ELEMENT component (sentiment?|span|externalReferences)+>
-<!ATTLIST component
-          id ID #REQUIRED
-          type CDATA #IMPLIED
-          lemma CDATA #IMPLIED
-          pos CDATA #IMPLIED
-          morphofeat CDATA #IMPLIED
-          netype CDATA #IMPLIED
-          case CDATA #IMPLIED
-          head CDATA #IMPLIED>
+<!ELEMENT component (target|sentiment?|externalReferences)+>
+<!ATTLIST component>
 
 <!-- MARKABLES ELEMENT -->
 
@@ -364,6 +352,7 @@
 <!ATTLIST entity
           id ID #REQUIRED
           type CDATA #REQUIRED
+		  status CDATA #IMPLIED
 		  source CDATA #IMPLIED>
 
 <!-- COREFERENCES ELEMENT -->

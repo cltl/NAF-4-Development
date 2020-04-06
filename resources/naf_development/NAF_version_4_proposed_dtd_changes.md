@@ -68,7 +68,50 @@ Version 4
           phrase_type CDATA #IMPLIED>
 ```
 
-## coref 
+## Multi-word
+
+The proposal is to remove the following elements:
+* span 
+
+The proposal is to add the following elements:
+* target 
+
+The proposal is to remove the following attributes:
+* id 
+* type
+* lemma
+* pos 
+* morphofeat
+* netype
+* case 
+* head 
+
+DISCUSSION: represent head as term attribute, e.g., "head IDREF #IMPLIED"?
+ 
+Version 3
+```dtd 
+
+<!ELEMENT component (sentiment?|span|externalReferences)+>
+<!ATTLIST component
+          id ID #REQUIRED
+          type CDATA #IMPLIED
+          lemma CDATA #IMPLIED
+          pos CDATA #IMPLIED
+          morphofeat CDATA #IMPLIED
+          netype CDATA #IMPLIED
+          case CDATA #IMPLIED
+          head CDATA #IMPLIED>
+```
+
+Version 4
+
+```dtd 
+
+<!ELEMENT component (target|sentiment?|externalReferences)+>
+<!ATTLIST component>
+```
+
+## the status attribute
 
 The proposal is to add the following attributes to the **coref** element:
 * status
@@ -78,23 +121,13 @@ The possible values of **status** are:
 * system: a language system added the annotation
 * deprecated: the coref element is deprecated, i.e., will no longer be used.
 
-Version 3
-```dtd 
-<!ELEMENT coref (span|externalReferences)+>
-<!ATTLIST coref
-          id ID #REQUIRED
-          type CDATA #IMPLIED>
-```
+We add this attribute to at least the following elements:
+* entities/entity
+* srl/predicate
+* coref
+* coref/span
 
-Version 4
-```dtd
-<!ELEMENT coref (span|externalReferences)+>
-<!ATTLIST coref
-          id ID #REQUIRED
-          status CDATA #REQUIRED
-          type CDATA #IMPLIED>
-```
-
+TODO: to how many elements do we want to add this?
 
 ## externalRef
 

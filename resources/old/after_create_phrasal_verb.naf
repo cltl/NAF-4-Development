@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!DOCTYPE NAF SYSTEM "naf_v4.dtd">
+<!DOCTYPE NAF SYSTEM "/Users/marten/PycharmProjects/NAF-4-Development/resources/naf_development/naf_v4.dtd">
 <NAF xml:lang="en" version="v3.naf">
   <nafHeader>
     <fileDesc creationtime="2020-01-23T14:14:44UTC"/>
@@ -42,11 +42,13 @@
         <target id="w3"/>
       </span>
     </term>
-    <term id="t5" lemma="give_up" pos="V" phrase_type="multi_word">
-        <component>
-            <target id="t2"/>
-            <target id="t3"/>
-        </component>
+    <term id="t5" lemma="give up" pos="V" phrase_type="multi_word">
+        <span>
+            <target id="w2"/>
+            <target id="w3"/>
+        </span>
+        <component id="t2"/>
+        <component id="t3"/>
     </term>
   </terms>
 </NAF>
