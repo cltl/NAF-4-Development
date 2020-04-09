@@ -132,7 +132,11 @@
             <target id="t15"/>
         </span>
      <externalReferences>
-          <externalRef reference="http://www.wikidata.org/entity/Q18341392" resource="http://www.wikidata.org" source="kKJAHkpoI82KwbP55zzzJisHodZ5wSXm" timestamp="2019-12-18T13:01:57"/>
+          <externalRef reference="http://www.wikidata.org/entity/Q18341392"
+                       resource="http://www.wikidata.org"
+                       source="kKJAHkpoI82KwbP55zzzJisHodZ5wSXm"
+                       reftype="http://semanticweb.cs.vu.nl/2009/11/sem/Event"
+                       timestamp="2019-12-18T13:01:57"/>
      </externalReferences>
      </coref>
   </coreferences>
