@@ -1,5 +1,19 @@
 # Proposed dtd changes NAF version 4
 
+## LP
+The proposal is to add the following attributes to a *lp* element
+* id (id ID #REQUIRED)
+
+this *id* can be used as an identifier for the linguistic processor.
+
+## entity
+
+The proposal is to remove the **references** element.
+This was used as a child of an **entities/entity** element.
+Instead, **span** is now directly a child of **entities/entity**.
+
+We also propose to make the **type** attribute of an **entities/entity** optional.
+
 ## span
 
 The proposal is to add the following attributes to the **span** element:

@@ -88,6 +88,7 @@
 
 <!ELEMENT lp EMPTY>
 <!ATTLIST lp
+		  id ID #REQUIRED
           name CDATA #REQUIRED
           version CDATA #REQUIRED
           timestamp CDATA #IMPLIED
@@ -348,10 +349,10 @@
     -   Percent
     -   Misc
   -->
-<!ELEMENT entity (references|externalReferences)+>
+<!ELEMENT entity (span|externalReferences)+>
 <!ATTLIST entity
           id ID #REQUIRED
-          type CDATA #REQUIRED
+          type CDATA #IMPLIED
 		  status CDATA #IMPLIED
 		  source CDATA #IMPLIED>
 
@@ -540,9 +541,7 @@
           prediction CDATA #REQUIRED
           confidence CDATA #IMPLIED>
 
-<!-- REFERENCES AND SPANS  -->
-<!-- REFERENCES ELEMENT (only used in Entity layer)-->
-<!ELEMENT references (span)+>
+<!-- SPANS  -->
 
 <!-- SPAN ELEMENT -->
 <!ELEMENT span (target)+>
