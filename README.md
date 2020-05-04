@@ -17,18 +17,15 @@ pip install -r requirements.txt
 ```
 
 ## Important content
-* [Discussion points for NAF version 4](documentation/V4.md)
-* [Proposed DTD changes for NAF version 4](resources/naf_development/NAF_version_4_proposed_dtd_changes.md)
-* [Current state of DTD NAF version 4](resources/naf_development/naf_v4.dtd)
+* [NAF version 4](doc/NAF_version_4.md)
+* [DTD NAF version 4](res/naf_development/naf_v4.dtd)
 * [DTD validation of NAF file using Python](scripts/validate_against_dtd.py)
+* [Discussion points for future development of NAF](doc/NAF_discussion_document.md)
 
 ## Contents
-* **documentation**: contains documentation, e.g., ideas.
-* **resources** contains data, e.g., NAF and JSON files.
+* **doc**: contains documentation
+* **res** contains data, e.g., DTD, NAF and JSON files.
 * **scripts** contains Python modules
-
-## TODO
-* how to access DTD using URI?
 
 ## Authors
 * **Marten Postma** (m.c.postma@vu.nl)

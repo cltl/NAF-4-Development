@@ -1,18 +1,20 @@
-# Proposed dtd changes NAF version 4
+# NAF version 4
+This document describe the changes in NAF version 4 compared to NAF version 3.
+Each header provides information about a change.
+* **date**: May 4th, 2020
 
-## LP
-The proposal is to add the following attributes to a *lp* element
-* id (id ID #REQUIRED)
-
-this *id* can be used as an identifier for the linguistic processor.
+## Team
+the following researchers contributed to this NAF version:
+* Piek Vossen (piek.vossen@vu.nl)
+* Antske Fokkens (antske.fokkens@vu.nl)
+* Marten Postma (m.c.postma@vu.nl)
 
 ## entity
+In NAF version 3, an `entities/entity` element had a child called `references`.
+The `references` element has been removed.
+Instead, `span` is now directly a child of `entities/entity`
 
-The proposal is to remove the **references** element.
-This was used as a child of an **entities/entity** element.
-Instead, **span** is now directly a child of **entities/entity**.
-
-We also propose to make the **type** attribute of an **entities/entity** optional.
+The `type` attribute of an `entities/entity` element is now optional.
 
 ## span
 
@@ -22,7 +24,13 @@ The proposal is to add the following attributes to the **span** element:
 The possible values of **status** are:
 * manual: manually added
 * system: a language system added the annotation
-* deprecated: the coref element is deprecated, i.e., will no longer be used.
+* deprecated: the element is deprecated
+
+We added this attribute to the following elements:
+* `entities/entity`
+* `srl/predicate`
+* `coref`
+* `coref/span`
 
 Version 3
 ```dtd
@@ -41,7 +49,6 @@ Version 4
 		  status CDATA #IMPLIED>
 ```
 
-
 ## term
 
 The proposal is to add the following attributes to the **term** element:
@@ -50,11 +57,10 @@ The proposal is to add the following attributes to the **term** element:
 The possible values of **phrase_type** are:
 * singleton
 * component: part of a multi-word expression
-* idiom
-* [TO DISCUSS] compound
+* idiom: part of an idiom
+* compound
 
 Version 3
-
 ```dtd
 <!ATTLIST term
           id ID #REQUIRED
@@ -82,7 +88,7 @@ Version 4
           phrase_type CDATA #IMPLIED>
 ```
 
-## Multi-word
+## multi-word
 
 The proposal is to remove the following elements:
 * span 
@@ -100,8 +106,6 @@ The proposal is to remove the following attributes:
 * case 
 * head 
 
-DISCUSSION: represent head as term attribute, e.g., "head IDREF #IMPLIED"?
- 
 Version 3
 ```dtd 
 
@@ -125,27 +129,9 @@ Version 4
 <!ATTLIST component>
 ```
 
-## the status attribute
-
-The proposal is to add the following attributes to the **coref** element:
-* status
-
-The possible values of **status** are:
-* manual: manually added
-* system: a language system added the annotation
-* deprecated: the coref element is deprecated, i.e., will no longer be used.
-
-We add this attribute to at least the following elements:
-* entities/entity
-* srl/predicate
-* coref
-* coref/span
-
-TODO: to how many elements do we want to add this?
-
 ## externalRef
 
-The proposal is to add the following attributes to the **externalRef** element:
+We added the following attributes to the `externalReferences/externalRef` element:
 * timestamp: timestamp of adding externalRef
 
 Version 3

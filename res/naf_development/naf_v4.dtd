@@ -88,7 +88,6 @@
 
 <!ELEMENT lp EMPTY>
 <!ATTLIST lp
-		  id ID #REQUIRED
           name CDATA #REQUIRED
           version CDATA #REQUIRED
           timestamp CDATA #IMPLIED
@@ -146,34 +145,24 @@
 
     id: unique identifier (REQUIRED AND UNIQUE)
 
-    type: type of the term. (REQUIRED) Currently, 3 values are possible:
+    type: type of the term. (IMPLIED) Currently, 3 values are possible:
     open: open category term
     close: close category term
 
-    lemma: lemma of the term (REQUIRED).
+    lemma: lemma of the term (IMPLIED).
 
-    pos: part of speech. (REQUIRED) The first letter of the pos attribute
-    must be one of the following:
+    pos: part of speech. (IMPLIED)
 
-    N   common noun
-    R   proper noun
-    G   adjective
-    V   verb
-    P   preposition
-    A   adverb
-    C   conjunction
-    D   determiner
-    O   other
+    Users are encourage to provide URIs to part of speech values to dereference these them.
 
     more complex pos attributes may be formed by concatenating values separated
-    by a dot ".". For example, in Basque we have "V.ADI.SIN" for simple verbs
-    or "V.ADI.KON" for complex verbs.
+    by a dot ".".
 
     morphofeat: morphosyntactic feature encoded as a single attribute.
 
-    case: declension case of the term (otpional).
+    case: declension case of the term (optional).
 
-    head: if the term is a compound, the id of the head component (otpional).
+    head: if the term is a compound, the id of the head component (optional).
   -->
 <!ELEMENT term (sentiment?|span|externalReferences|component)+>
 <!ATTLIST term
@@ -339,7 +328,7 @@
 <!--
     A named entity element has the following attributes:
     -   id: the id for the named entity (REQUIRED)
-    -   type:  type of the named entity. (REQUIRED) Currently, 8 values are possible:
+    -   type:  type of the named entity. (IMPLIED) Currently, 8 values are possible:
     -   Person
     -   Organization
     -   Location
