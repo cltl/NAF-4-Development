@@ -57,6 +57,7 @@ The proposal is to add the following attributes to the **term** element:
 The possible values of **phrase_type** are:
 * singleton
 * component: part of a multi-word expression
+* multi_word: the term is a multi-word.
 * idiom: part of an idiom
 * compound
 
