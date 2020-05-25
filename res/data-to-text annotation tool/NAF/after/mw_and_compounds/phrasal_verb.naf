@@ -42,7 +42,7 @@
         <target id="w3"/>
       </span>
     </term>
-    <term id="t5" lemma="give_up" pos="V" phrase_type="multi_word">
+    <term id="t5" lemma="give_up" pos="V" phrase_type="multi_word" ud_rel="compound:prt">
         <component>
             <target id="t2"/>
             <target id="t3"/>

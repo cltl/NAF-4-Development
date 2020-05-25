@@ -17,8 +17,8 @@ pip install -r requirements.txt
 ```
 
 ## Important content
-* [NAF version 4](doc/NAF_version_4.md)
-* [DTD NAF version 4](res/naf_development/naf_v4.dtd)
+* [NAF version 3.1](doc/NAF_version_3.1.md)
+* [DTD NAF version 3.1](res/naf_development/naf_v3.1.dtd)
 * [DTD validation of NAF file using Python](scripts/validate_against_dtd.py)
 * [Discussion points for future development of NAF](doc/NAF_discussion_document.md)
 

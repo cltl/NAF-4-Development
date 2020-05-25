@@ -2,8 +2,6 @@
 
 This document contains proposals to be discussed to update NAF version 3 to version 4.
 
-## Important for data release 
-
 ### Tokens and terms
 NAF currently does not have subtoken representation.
 Having this would facilitate representating compounds.
@@ -72,24 +70,6 @@ describe how to represent compound terms.
 * version
 * use identifiers for annotations with time stamp
 
-### Entity spans
-For an entity, the span is represented as:
-```xml
-<references>
-    <span>
-        <target id="t8"/>
-    </span>
-</references>```
-
-In terms, the span is represented as:
-```xml
-<span>
-    <target id="w1"/>
-</span>
-```
-
-Would it be possible to align the representations, i.e., no *references* element for an entity?
-
 ### part of speech
 The current part of speech tagset is:
 * N common noun
@@ -109,21 +89,6 @@ Even though the DTD will validate if you use another tagset, I propose that we u
 
 ### IRIs and name spaces for identifiers
 The goal is to make sure we use IRIs as much as possible.
-
-### the status attribute
-We propose to add a **status** attribute to at least the following layers:
-* term 
-* entity
-* predicate
-* coref
-    * span
-
-It could also be added to any element to indicate more information about the provenance.
-
-This allows us to indicate whether a layer was manually annotated or by a system.
-Also, we can then deprecate certain elements.
-
-## Useful but not immediately needed for data release
 
 ### Multiple layers of the same layer
 NAF currently does not allow to contain multiple layers of the same information layer,

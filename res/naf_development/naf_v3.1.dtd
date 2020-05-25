@@ -163,6 +163,10 @@
     case: declension case of the term (optional).
 
     head: if the term is a compound, the id of the head component (optional).
+
+    phrase_type: component, singleton or multi_word
+
+    ud_rel: compound:prt (phrasal verb) or compound
   -->
 <!ELEMENT term (sentiment?|span|externalReferences|component)+>
 <!ATTLIST term
@@ -174,7 +178,8 @@
           netype CDATA #IMPLIED
           case CDATA #IMPLIED
           head CDATA #IMPLIED
-		  phrase_type CDATA #IMPLIED>
+		  phrase_type CDATA #IMPLIED
+		  ud_rel CDATA #IMPLIED>
 
 
 <!-- SENTIMENT FEATURES ELEMENTS -->

@@ -1,5 +1,5 @@
-# NAF version 4.0 
-This document describe the changes in NAF version 4.0 compared to NAF version 3.
+# NAF version 3.1 
+This document describe the changes in NAF version 3.1 compared to NAF version 3.
 Each header provides information about a change.
 * **date**: May 25th, 2020
 
@@ -18,7 +18,7 @@ The `type` attribute of an `entities/entity` element is now optional.
 
 ## span
 
-The proposal is to add the following attributes to the **span** element:
+The following attribute is added to the **span** element:
 * status 
 
 The possible values of **status** are:
@@ -40,7 +40,7 @@ Version 3
           primary CDATA #IMPLIED>
 ```
 
-Version 4
+Version 3.1
 ```dtd
 <!-- SPAN ELEMENT -->
 <!ELEMENT span (target)+>
@@ -51,15 +51,18 @@ Version 4
 
 ## term
 
-The proposal is to add the following attributes to the **term** element:
+The following attributes have been added to the **term** element:
 * phrase_type 
+* ud_rel
 
 The possible values of **phrase_type** are:
-* singleton
-* component: part of a multi-word expression
-* phrasal_verb: the term is a phrasal verb.
-* [to discuss] idiom: part of an idiom
-* [to discuss] compound
+* component: the term is part of a multi-word expression
+* singleton: term consisting of a one single token
+* multi_word: part of a multi-word expression
+
+The possible values of **ud_rel** are:
+* compound:prt: the term is a phrasal verb.
+* compound: the term is a compound
 
 Version 3
 ```dtd
@@ -74,7 +77,7 @@ Version 3
           head CDATA #IMPLIED
 ```
 
-Version 4
+Version 3.1
 
 ```dtd
 <!ATTLIST term
@@ -86,26 +89,14 @@ Version 4
           netype CDATA #IMPLIED
           case CDATA #IMPLIED
           head CDATA #IMPLIED
-          phrase_type CDATA #IMPLIED>
+          phrase_type CDATA #IMPLIED
+          ud_rel CDATA #IMPLIED>
 ```
 
 ## multi-word
-
-The proposal is to remove the following elements:
-* span 
-
-The proposal is to add the following elements:
-* target 
-
-The proposal is to remove the following attributes:
-* id 
-* type
-* lemma
-* pos 
-* morphofeat
-* netype
-* case 
-* head 
+Multi-word terms only have a **component** child in version 3.1.
+This component element can have multiple **target** elements,
+each referring to a component of the multi-word expression.
 
 Version 3
 ```dtd 
@@ -122,7 +113,7 @@ Version 3
           head CDATA #IMPLIED>
 ```
 
-Version 4
+Version 3.1
 
 ```dtd 
 
@@ -146,6 +137,7 @@ Version 3
           source CDATA #IMPLIED
           confidence CDATA #IMPLIED>```
 
+Version 3.1
 ```dtd
 <!ELEMENT externalRef (sentiment|externalRef)*>
 <!ATTLIST externalRef
