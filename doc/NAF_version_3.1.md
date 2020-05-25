@@ -16,6 +16,11 @@ Instead, `span` is now directly a child of `entities/entity`
 
 The `type` attribute of an `entities/entity` element is now optional.
 
+
+## predicate
+
+The **uri** is removed from a **predicate** element.
+
 ## span
 
 The following attribute is added to the **span** element:

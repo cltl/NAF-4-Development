@@ -397,7 +397,6 @@
 <!ELEMENT predicate (externalReferences|span|role)+>
 <!ATTLIST predicate
           id ID #REQUIRED
-          uri CDATA #IMPLIED
           confidence CDATA #IMPLIED
           status CDATA #IMPLIED>
 
