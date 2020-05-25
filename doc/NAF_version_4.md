@@ -1,7 +1,7 @@
-# NAF version 4
-This document describe the changes in NAF version 4 compared to NAF version 3.
+# NAF version 4.0 
+This document describe the changes in NAF version 4.0 compared to NAF version 3.
 Each header provides information about a change.
-* **date**: May 4th, 2020
+* **date**: May 25th, 2020
 
 ## Team
 the following researchers contributed to this NAF version:
@@ -57,9 +57,9 @@ The proposal is to add the following attributes to the **term** element:
 The possible values of **phrase_type** are:
 * singleton
 * component: part of a multi-word expression
-* multi_word: the term is a multi-word.
-* idiom: part of an idiom
-* compound
+* phrasal_verb: the term is a phrasal verb.
+* [to discuss] idiom: part of an idiom
+* [to discuss] compound
 
 Version 3
 ```dtd
