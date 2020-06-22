@@ -13,8 +13,9 @@ Example:
     --naf_v4_dtd_path="../resources/naf_development/naf_v4.dtd"
 """
 from docopt import docopt
-import os
-import shutil
+import sys
+import requests
+import io
 
 from lxml import etree
 
@@ -25,15 +26,59 @@ print('PROVIDED ARGUMENTS')
 print(arguments)
 print()
 
-module_dir = os.path.dirname(os.path.realpath(__file__))
+def load_dtd_as_file_object(dtd_url=None,
+                            dtd_path=None,
+                            verbose=0):
+    dtd = None
 
+
+    if dtd_url is not None:
+        r = requests.get(dtd_url)
+
+        if r.status_code == 200:
+            dtd_file_object = io.StringIO(r.text)
+            dtd = etree.DTD(dtd_file_object)
+
+        if verbose >= 1:
+            print()
+            if dtd is None:
+                print(f'failed to load dtd from {dtd_url}')
+            else:
+                print(f'succesfully loaded dtd from {dtd_url}')
+
+    elif dtd_path is not None:
+        with open(dtd_path) as infile:
+            dtd = etree.DTD(infile)
+
+        if verbose >= 1:
+            print()
+            if dtd is None:
+                print(f'failed to load dtd from {dtd_path}')
+            else:
+                print(f'succesfully loaded dtd from {dtd_path}')
+
+    return dtd
+
+def validate_naf_file(dtd, root):
+    succes = dtd.validate(root)
+
+    if not succes:
+        print()
+        print(sys.stderr.write("DTD error log:"))
+        for error in dtd.error_log.filter_from_errors():
+            sys.stderr.write(str(error))
+        raise Exception(f'dtd validation failed. Please inspect stderr.')
+
+    return succes
 
 naf_path = arguments['--naf_path']
 dtd_path = arguments['--naf_v4_dtd_path']
 
-shutil.copy(dtd_path, module_dir)
+dtd = load_dtd_as_file_object(dtd_path=dtd_path, verbose=1)
 
-parser = etree.XMLParser(dtd_validation=True)
-tree = etree.parse(naf_path, parser)
+doc = etree.parse(naf_path)
+root = doc.getroot()
+
+validate_naf_file(dtd, root)
 
 print('the DTD validation was a succes!')
