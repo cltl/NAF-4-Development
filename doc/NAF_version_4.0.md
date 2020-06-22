@@ -71,7 +71,7 @@ Version 3
           primary CDATA #IMPLIED>
 ```
 
-Version 3.1
+Version 4.0
 ```dtd
 <!-- SPAN ELEMENT -->
 <!ELEMENT span (target)+>
@@ -184,7 +184,7 @@ Version 3
           source CDATA #IMPLIED
           confidence CDATA #IMPLIED>```
 
-Version 3.1
+Version 4.0
 ```dtd
 <!ELEMENT externalRef (sentiment|externalRef)*>
 <!ATTLIST externalRef
