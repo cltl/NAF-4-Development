@@ -1,5 +1,5 @@
 <!-- DTD NAF -->
-<!ELEMENT NAF (nafHeader|raw|topics|text|terms|deps|chunks|entities|coreferences|constituency|srl|opinions|timeExpressions|factualitylayer|tunits|locations|dates|temporalRelations|causalRelations|markables|attribution|factualities)*>
+<!ELEMENT NAF (nafHeader|raw|topics|text|terms|multiwords|deps|chunks|entities|coreferences|constituency|srl|opinions|timeExpressions|factualitylayer|tunits|locations|dates|temporalRelations|causalRelations|markables|attribution|factualities)*>
 
 <!-- NAF ELEMENT -->
 <!ATTLIST NAF
@@ -126,7 +126,7 @@
         - xpath: in case of source xml files, the xpath expression identifying the original word form (optional)
 
         -->
-<!ELEMENT wf (#PCDATA)>
+<!ELEMENT wf (#PCDATA|subtoken)*>
 <!ATTLIST wf
           id ID #REQUIRED
           sent CDATA #IMPLIED
@@ -135,6 +135,22 @@
           offset CDATA #REQUIRED
           length CDATA #REQUIRED
           xpath CDATA #IMPLIED>
+
+
+<!-- SUBTOKEN ELEMENT -->
+<!--
+    <subtoken> elements describe a subtoken of a wf element
+    the following attributes have been defined
+    - id: the id of the subtoken (REQUIRED and UNIQUE)
+    - offset: the offset (in characters) of the subtoken
+    - length: the length (in characters) of the subtoken
+        -->
+
+<!ELEMENT subtoken (#PCDATA)>
+<!ATTLIST subtoken
+          id ID #REQUIRED
+          offset CDATA #REQUIRED
+          length CDATA #REQUIRED>
 
 <!-- TERMS ELEMENT -->
 <!ELEMENT terms (term)+>
@@ -164,9 +180,11 @@
 
     head: if the term is a compound, the id of the head component (optional).
 
-    phrase_type: component, singleton or multi_word
+    component_of: if the term is part of multiword, i.e., referenced by a multiwords/mw element
+    than this attribute can be used to make reference to the multiword.
 
-    ud_rel: compound:prt (phrasal verb) or compound
+    compound_type: endocentric or exocentric
+
   -->
 <!ELEMENT term (sentiment?|span|externalReferences|component)+>
 <!ATTLIST term
@@ -178,9 +196,37 @@
           netype CDATA #IMPLIED
           case CDATA #IMPLIED
           head CDATA #IMPLIED
-		  phrase_type CDATA #IMPLIED
-		  ud_rel CDATA #IMPLIED>
+		  component_of IDREF #IMPLIED
+          compound_type CDATA #IMPLIED>
 
+<!-- MULTIWORDS ELEMENT -->
+<!ELEMENT multiwords (mw)+>
+
+<!-- MW ELEMENT -->
+<!--
+    attributes of mw elements
+
+    id: unique identifier (REQUIRED AND UNIQUE)
+
+    lemma: lemma of the term (IMPLIED).
+
+    pos: part of speech. (IMPLIED)
+
+    morphofeat: morphosyntactic feature encoded as a single attribute. (IMPLIED)
+
+    case: declension case (IMPLIED)
+
+    type: phrasal, idiom
+  -->
+
+<!ELEMENT mw (component|externalReferences)+>
+<!ATTLIST mw
+          id ID #REQUIRED
+          lemma CDATA #IMPLIED
+          pos CDATA #IMPLIED
+		  morphofeat CDATA #IMPLIED
+		  case CDATA #IMPLIED
+		  type CDATA #REQUIRED>
 
 <!-- SENTIMENT FEATURES ELEMENTS -->
 <!--
@@ -269,12 +315,27 @@
 
 <!-- COMPONENT ELEMENT -->
 <!--
-    Compound and multiword terms can be represented in NAF by including a <component> element within <term> elements.
-    The <component> element has no attributes.
-
+    Compound and multiword terms can be represented in NAF by including <component> elements within <term> elements.
+    The <component> elements have the following attributes:
+    -   id: unique identifier (REQUIRED and UNIQUE).
+    If the component is part of a multiword, i.e., a multiwords/mw element, the syntax for the identifier is MW_ID.C_ID
+    e.g., mw1.c1 and mw1.c2 for the two components of the multiwords/mw element with the identifier mw1
+    If the component is part of a compound, i.e., a terms/term element, the syntax for the identifier is T_ID.C_ID
+    e.g., t1.c1 and t1.c2 for the two components of the terms/term element with the identifier t1.
+    -   lemma: lemma of the term (REQUIRED)
+    -   pos: part of speech (REQUIRED)
+    -   case: declension case (optional)
   -->
-<!ELEMENT component (target|sentiment?|externalReferences)+>
-<!ATTLIST component>
+<!ELEMENT component (sentiment?|span|externalReferences)+>
+<!ATTLIST component
+          id ID #REQUIRED
+          type CDATA #IMPLIED
+          lemma CDATA #IMPLIED
+          pos CDATA #IMPLIED
+          morphofeat CDATA #IMPLIED
+          netype CDATA #IMPLIED
+          case CDATA #IMPLIED
+          head CDATA #IMPLIED>
 
 <!-- MARKABLES ELEMENT -->
 
@@ -403,10 +464,8 @@
 <!ELEMENT role (externalReferences|span)+>
 <!ATTLIST role
           id ID #REQUIRED
-          uri CDATA #IMPLIED
           confidence CDATA #IMPLIED
-          timestamp CDATA #IMPLIED
-          semRole CDATA #REQUIRED>
+		  status CDATA #IMPLIED>
 
 <!-- OPINIONS ELEMENT -->
 <!ELEMENT opinions (opinion)+>
