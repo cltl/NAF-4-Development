@@ -12,6 +12,7 @@ the following researchers contributed to this NAF version:
 ## subtoken
 We introduce a **subtoken** element which is a child of a wf element.
 The goal is to represent a subtoken of a word form element, typically used to represent compounds.
+The syntax of the id is TOKEN_ID.SUBTOKEN_ID, e.g., "w1.sub1", "w2.sub2", etc.
 
 ```dtd
 <!ELEMENT subtoken (#PCDATA)>

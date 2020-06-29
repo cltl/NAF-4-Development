@@ -141,7 +141,7 @@
 <!--
     <subtoken> elements describe a subtoken of a wf element
     the following attributes have been defined
-    - id: the id of the subtoken (REQUIRED and UNIQUE)
+    - id: the id of the subtoken (REQUIRED and UNIQUE). The syntax of the id is WF_ID.SUBTOKEN_ID, e.g., "w1.sub1", "w1.sub2", etc.
     - offset: the offset (in characters) of the subtoken
     - length: the length (in characters) of the subtoken
         -->
