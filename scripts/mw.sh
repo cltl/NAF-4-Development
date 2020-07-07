@@ -7,3 +7,6 @@ python validate_against_dtd.py \
 python validate_against_dtd.py \
  --naf_path="../res/data-to-text annotation tool/NAF/after_v31/mw/phrasal.naf"\
  --naf_dtd_path=$dtd_path
+python validate_against_dtd.py \
+ --naf_path="../res/data-to-text annotation tool/NAF/after_v31/mw/remove_phrasal.naf"\
+ --naf_dtd_path=$dtd_path

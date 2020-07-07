@@ -84,6 +84,7 @@ We added this attribute to the following elements:
 * `srl/predicate/role`
 * `coref`
 * `coref/span`
+* `multiwords/mw`
 
 Version 3
 ```dtd

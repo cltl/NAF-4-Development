@@ -216,6 +216,8 @@
 
     case: declension case (IMPLIED)
 
+    status: manual | system | deprecated
+
     type: phrasal, idiom
   -->
 
@@ -226,6 +228,7 @@
           pos CDATA #IMPLIED
 		  morphofeat CDATA #IMPLIED
 		  case CDATA #IMPLIED
+		  status CDATA #IMPLIED
 		  type CDATA #REQUIRED>
 
 <!-- SENTIMENT FEATURES ELEMENTS -->
