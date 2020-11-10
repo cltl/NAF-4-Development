@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='utf-8'?>
+<NAF xml:lang="en" version="v3.1">
+  <nafHeader>
+    <fileDesc creationtime="2020-01-09T08:22:34UTC"/>
+    <public/>
+    <linguisticProcessors layer="text">
+      <lp beginTimestamp="2020-01-09T08:22:34UTC" endTimestamp="2020-01-09T08:22:34UTC" name="spaCy-model_en_core_web_sm" version="spaCy_version-2.1.4__model_version-2.1.0"/>
+    </linguisticProcessors>
+    <linguisticProcessors layer="deps">
+      <lp beginTimestamp="2020-01-09T08:22:34UTC" endTimestamp="2020-01-09T08:22:34UTC" name="spaCy-model_en_core_web_sm" version="spaCy_version-2.1.4__model_version-2.1.0"/>
+    </linguisticProcessors>
+    <linguisticProcessors layer="terms">
+      <lp beginTimestamp="2020-01-09T08:22:34UTC" endTimestamp="2020-01-09T08:22:34UTC" name="spaCy-model_en_core_web_sm" version="spaCy_version-2.1.4__model_version-2.1.0"/>
+    </linguisticProcessors>
+    <linguisticProcessors layer="entities">
+      <lp beginTimestamp="2020-01-09T08:22:34UTC" endTimestamp="2020-01-09T08:22:34UTC" name="spaCy-model_en_core_web_sm" version="spaCy_version-2.1.4__model_version-2.1.0"/>
+    </linguisticProcessors>
+    <linguisticProcessors layer="raw">
+      <lp beginTimestamp="2020-01-09T08:22:34UTC" endTimestamp="2020-01-09T08:22:34UTC" name="spaCy-model_en_core_web_sm" version="spaCy_version-2.1.4__model_version-2.1.0"/>
+    </linguisticProcessors>
+  </nafHeader>
+  <raw>The cat killed the sailor.
+</raw>
+  <text>
+    <wf sent="1" id="w1" length="3" offset="0"><![CDATA[The]]></wf>
+    <wf sent="1" id="w2" length="3" offset="4"><![CDATA[cat]]></wf>
+    <wf sent="1" id="w3" length="6" offset="8"><![CDATA[killed]]></wf>
+    <wf sent="1" id="w4" length="3" offset="15"><![CDATA[the]]></wf>
+    <wf sent="1" id="w5" length="6" offset="19"><![CDATA[sailor]]></wf>
+    <wf sent="1" id="w6" length="1" offset="25"><![CDATA[.]]></wf>
+    <wf sent="1" id="w7" length="1" offset="26"><![CDATA[
+]]></wf>
+  </text>
+  <terms>
+    <term id="t1" lemma="the" pos="D" type="close" morphofeat="DT">
+      <span>
+        <target id="w1"/>
+      </span>
+    </term>
+    <term id="t2" lemma="cat" pos="N" type="open" morphofeat="NN">
+      <span>
+        <target id="w2"/>
+      </span>
+    </term>
+    <term id="t3" lemma="kill" pos="V" type="open" morphofeat="VBD">
+      <span>
+        <target id="w3"/>
+      </span>
+    </term>
+    <term id="t4" lemma="the" pos="D" type="close" morphofeat="DT">
+      <span>
+        <target id="w4"/>
+      </span>
+    </term>
+    <term id="t5" lemma="sailor" pos="N" type="open" morphofeat="NN">
+      <span>
+        <target id="w5"/>
+      </span>
+    </term>
+    <term id="t6" lemma="." pos="O" type="close" morphofeat=".">
+      <span>
+        <target id="w6"/>
+      </span>
+    </term>
+    <term id="t7" lemma="&#10;" pos="O" type="open" morphofeat="_SP">
+      <span>
+        <target id="w7"/>
+      </span>
+    </term>
+  </terms>
+  <deps>
+    <dep from="t2" to="t1" rfunc="det"/>
+    <dep from="t3" to="t2" rfunc="nsubj"/>
+    <dep from="t5" to="t4" rfunc="det"/>
+    <dep from="t3" to="t5" rfunc="dobj"/>
+    <dep from="t3" to="t6" rfunc="punct"/>
+    <dep from="t6" to="t7" rfunc=""/>
+  </deps>
+  <srl>
+      <predicate id="pr1" status="manual">
+          <span>
+             <target id="t3"/>
+          </span>
+          <externalReferences>
+              <externalRef reference="http://premon.fbk.eu/resource/fn17-killing" resource="http://premon.fbk.eu/premon/fn17" source="kKJAHkpoI82KwbP55zzzJisHodZ5wSXm" reftype="type" timestamp="2019-12-18T13:01:57"/>
+          </externalReferences>
+     </predicate>
+ </srl>
+</NAF>
