@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<NAF xml:lang="en" version="v3.1">
+  <nafHeader>
+    <fileDesc creationtime="2020-01-20T10:29:36UTC"/>
+    <public/>
+    <linguisticProcessors layer="entities">
+      <lp beginTimestamp="2020-01-20T10:29:36UTC" endTimestamp="2020-01-20T10:29:36UTC" name="spaCy-model_en_core_web_sm" version="spaCy_version-2.1.4__model_version-2.1.0"/>
+    </linguisticProcessors>
+    <linguisticProcessors layer="deps">
+      <lp beginTimestamp="2020-01-20T10:29:36UTC" endTimestamp="2020-01-20T10:29:36UTC" name="spaCy-model_en_core_web_sm" version="spaCy_version-2.1.4__model_version-2.1.0"/>
+    </linguisticProcessors>
+    <linguisticProcessors layer="text">
+      <lp beginTimestamp="2020-01-20T10:29:36UTC" endTimestamp="2020-01-20T10:29:36UTC" name="spaCy-model_en_core_web_sm" version="spaCy_version-2.1.4__model_version-2.1.0"/>
+    </linguisticProcessors>
+    <linguisticProcessors layer="raw">
+      <lp beginTimestamp="2020-01-20T10:29:36UTC" endTimestamp="2020-01-20T10:29:36UTC" name="spaCy-model_en_core_web_sm" version="spaCy_version-2.1.4__model_version-2.1.0"/>
+    </linguisticProcessors>
+    <linguisticProcessors layer="terms">
+      <lp beginTimestamp="2020-01-20T10:29:36UTC" endTimestamp="2020-01-20T10:29:36UTC" name="spaCy-model_en_core_web_sm" version="spaCy_version-2.1.4__model_version-2.1.0"/>
+    </linguisticProcessors>
+  </nafHeader>
+  <raw>The fugitive was shot on Thursday.</raw>
+  <text>
+    <wf sent="1" id="w1" length="3" offset="0"><![CDATA[The]]></wf>
+    <wf sent="1" id="w2" length="8" offset="4"><![CDATA[fugitive]]></wf>
+    <wf sent="1" id="w3" length="3" offset="13"><![CDATA[was]]></wf>
+    <wf sent="1" id="w4" length="4" offset="17"><![CDATA[shot]]></wf>
+    <wf sent="1" id="w5" length="2" offset="22"><![CDATA[on]]></wf>
+    <wf sent="1" id="w6" length="8" offset="25"><![CDATA[Thursday]]></wf>
+    <wf sent="1" id="w7" length="1" offset="33"><![CDATA[.]]></wf>
+  </text>
+  <terms>
+    <term id="t1" lemma="the" pos="D" type="close" morphofeat="DT">
+      <span>
+        <target id="w1"/>
+      </span>
+    </term>
+    <term id="t2" lemma="fugitive" pos="N" type="open" morphofeat="NN">
+      <span>
+        <target id="w2"/>
+      </span>
+    </term>
+    <term id="t3" lemma="be" pos="V" type="open" morphofeat="VBD">
+      <span>
+        <target id="w3"/>
+      </span>
+    </term>
+    <term id="t4" lemma="shoot" pos="V" type="open" morphofeat="VBN">
+      <span>
+        <target id="w4"/>
+      </span>
+    </term>
+    <term id="t5" lemma="on" pos="P" type="open" morphofeat="IN">
+      <span>
+        <target id="w5"/>
+      </span>
+    </term>
+    <term id="t6" lemma="Thursday" pos="R" type="open" morphofeat="NNP">
+      <span>
+        <target id="w6"/>
+      </span>
+    </term>
+    <term id="t7" lemma="." pos="O" type="close" morphofeat=".">
+      <span>
+        <target id="w7"/>
+      </span>
+    </term>
+  </terms>
+  <deps>
+    <dep from="t2" to="t1" rfunc="det"/>
+    <dep from="t4" to="t2" rfunc="nsubjpass"/>
+    <dep from="t4" to="t3" rfunc="auxpass"/>
+    <dep from="t4" to="t5" rfunc="prep"/>
+    <dep from="t5" to="t6" rfunc="pobj"/>
+    <dep from="t4" to="t7" rfunc="punct"/>
+  </deps>
+  <srl>
+      <predicate id="pr1" status='manual'>
+          <span>
+             <target id="t4"/>
+          </span>
+          <externalReferences>
+              <externalRef reference="http://premon.fbk.eu/resource/fn17-use_firearm" resource="http://premon.fbk.eu/premon/fn17" source="kKJAHkpoI82KwbP55zzzJisHodZ5wSXm" reftype="type" timestamp="2019-12-18T13:01:57"/>
+          </externalReferences>
+     </predicate>
+  </srl>
+</NAF>
