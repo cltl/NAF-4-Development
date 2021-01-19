@@ -17,6 +17,13 @@ pip install -r requirements.txt
 ```
 
 ## Important content
+### NAF version 3.2
+*Update January 19, 2021*
+* [NAF version 3.2](doc/NAF_version_3.2.md)
+* [DTD NAF version 3.2](res/naf_development/naf_v3.2.dtd)
+
+
+### NAF version 3.1
 * [NAF version 3.1](doc/NAF_version_3.1.md)
 * [DTD NAF version 3.1](res/naf_development/naf_v3.1.dtd)
 * [DTD validation of NAF file using Python](scripts/validate_against_dtd.py)
