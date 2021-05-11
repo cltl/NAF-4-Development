@@ -34,8 +34,5 @@ pip install -r requirements.txt
 * **res** contains data, e.g., DTD, NAF and JSON files.
 * **scripts** contains Python modules
 
-## Authors
-* **Marten Postma** (m.c.postma@vu.nl)
-
 ## License
 This project is licensed under the Apache 2.0 License - see the [LICENSE.md](LICENSE.md) file for details
