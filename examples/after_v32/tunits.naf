@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Example SYSTEM "naf_3.2.dtd">
-<naf version="3.2" xml:lang="nl">
+<NAF version="3.2" xml:lang="nl">
     <nafHeader>
         <fileDesc filename="tunits.naf"/>
         <linguisticProcessors layer="raw">
@@ -16,4 +16,4 @@
         <tunit id="tu0" offset="0" length="93"/>
         <tunit id="tu1" offset="94" length="97"/>
     </tunits>
-</naf>
+</NAF>

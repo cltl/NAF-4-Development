@@ -1,38 +1,37 @@
 # NAF version 4 development
 
-The purpose of this repository is to facilitate the development of moving from [NAF](https://github.com/newsreader/NAF) version 3 to NAF version 4.
-After completing the development, we will update the [converter from spaCy to NAF](https://github.com/cltl/SpaCy-to-NAF).
+NAF (NLP Annotation Format) is an XML format for annotating text documents. Different layers of annotation 
+(tokenization, POS tagging, etc.) are represented as standalone annotations in a same document, while information about
+the models or *linguistic processors* used to create these annotations are recorded in the document header, together 
+with metadata about the document. See example files in `./examples`.
 
-## Prerequisites
+NAF was originally developed as part of the [Newsreader project](http://www.newsreader-project.eu/). Documentation for 
+NAF until version 3.1 is hosted in [newsreader/NAF](https://github.com/newsreader/NAF).
 
-Python 3.6 was used to create this project. It might work with older versions of Python.
-One of the main reasons to move to NAF version 4 is the creation of an annotation tool within the [Dutch FrameNet](http://dutchframenet.nl/) project.
-Within this project, we are building a [data-to-text annotation tool](https://github.com/cltl/frame-annotation-tool).
+This repository presents current NAF development. 
 
-## Python modules
-A number of external modules need to be installed, which are listed in **requirements.txt**.
-Depending on how you installed Python, you can probably install the requirements using one of following commands:
-```bash
+## Version overview
+* The [newsreader/NAF](https://github.com/newsreader/NAF) repository documents NAF version 3 as used for the 
+[Newsreader project](http://www.newsreader-project.eu/), 
+and up to version 3.1.
+* Version 3.1 is the first step in further developing NAF for the [Dutch FrameNet](http://dutchframenet.nl/) project, 
+for which we are building a [data-to-text annotation tool](https://github.com/cltl/frame-annotation-tool).
+* Version 3.2 adds a text-unit element. This was developed for processing [VOC missives](https://github.com/cltl/voc-missives)
+ for Clariah+/Text 
+* Version 3.3 extends annotations in linguistic-processor elements.
+
+The DTD of each version can be found in `./resources/dtd`, version changes are documented in `./doc` and `Changelog.md`.
+
+The files under `./examples` can be validated with the scripts `./scripts/validate_against_dtd.py` (python 3.6+) and 
+`./scripts/tests/`. 
+You will need to install `lxml` and `pytest` for that:
+```python
 pip install -r requirements.txt
 ```
-
-## Important content
-### NAF version 3.2
-*Update January 19, 2021*
-* [NAF version 3.2](doc/NAF_version_3.2.md)
-* [DTD NAF version 3.2](res/naf_development/naf_v3.2.dtd)
-
-
-### NAF version 3.1
-* [NAF version 3.1](doc/NAF_version_3.1.md)
-* [DTD NAF version 3.1](res/naf_development/naf_v3.1.dtd)
-* [DTD validation of NAF file using Python](scripts/validate_against_dtd.py)
-* [Discussion points for future development of NAF](doc/NAF_discussion_document.md)
-
-## Contents
-* **doc**: contains documentation
-* **res** contains data, e.g., DTD, NAF and JSON files.
-* **scripts** contains Python modules
+To validate all examples:
+```xml
+pytest scripts/tests
+```
 
 ## License
 This project is licensed under the Apache 2.0 License - see the [LICENSE.md](LICENSE.md) file for details
