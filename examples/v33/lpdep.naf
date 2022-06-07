@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!DOCTYPE NAF SYSTEM "/home/sophie/workspace/cltl/naf/NAF-4-Development/resources/dev/naf_v3.3.a.dtd">
-<NAF xml:lang="en" version="v3.3.a">
+<!DOCTYPE NAF SYSTEM "naf_v3.3.dtd">
+<NAF xml:lang="en" version="v3.3">
   <nafHeader>
     <fileDesc creationtime="2020-03-23T10:18:08UTC"/>
     <public/>
