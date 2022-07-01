@@ -2,6 +2,15 @@
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
+Versioning loosely follows Semantic Versioning. Patch numbers are used for corrections of the DTD where we feel
+that this is more in line with NAF.
+
+## v3.3.1
+* Date: June 30, 2022
+* Author: Sophie Arnoult (s.i.arnoult@vu.nl)
+
+### Changed
+* `chunk` elements have one and only one `span` child
 
 ## v3.3
 * Date: June 7, 2022

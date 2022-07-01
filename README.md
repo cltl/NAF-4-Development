@@ -19,6 +19,7 @@ for which we are building a [data-to-text annotation tool](https://github.com/cl
 * Version 3.2 adds a text-unit element. This was developed for processing [VOC missives](https://github.com/cltl/voc-missives)
  for Clariah+/Text 
 * Version 3.3 extends annotations in linguistic-processor elements.
+  * The current version is 3.3.1 (`chunk` elements have one and only one `span` sub-element)
 
 The DTD of each version can be found in `./resources/dtd`, version changes are documented in `./doc` and `Changelog.md`.
 
